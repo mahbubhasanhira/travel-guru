@@ -1,0 +1,27 @@
+.card_item{
+    width: 250px;
+    height: 60vh;
+    margin: 5px 10px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+   
+}
+
+.card_image{    
+    border-radius: 20px;
+    width: 250px;
+    height: 60vh;
+    object-fit: cover;
+    object-position: center center;
+  
+}
+.card_title{
+    text-transform: uppercase;
+}
+.img_overlay{
+    background: linear-gradient(0.12deg, #000000 0.1%, rgba(0, 0, 0, 0) 69.96%);
+    border-radius: 20px;
+}
+
+   

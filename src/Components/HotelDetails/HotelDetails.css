@@ -1,0 +1,36 @@
+.hotel_details_container{
+    border-top: 2px solid gray;
+    padding-left: 0px;  
+}
+.hotel_card_container{
+    padding-left: 0;
+}
+
+.hotel_details{
+    margin: 30px 0;
+}
+.hotel_details img{
+    padding-left: 0;
+}
+
+.hotelDetails_data p{
+    line-height: 20px;
+    color: #6A6A6A;;
+}
+.bedrooms span{
+    padding: 0 3px;
+}
+
+.hotel_description{
+    line-height: 25px !important;
+}
+
+.review_and_price span{
+    color:black;
+    font-weight: 600;
+    padding:0 3px;
+}
+.google_map{
+    height:700px;
+    padding:40px 0 0 10px;
+}
