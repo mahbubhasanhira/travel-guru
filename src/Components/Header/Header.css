@@ -1,68 +1,65 @@
-.navbar{
-    padding:.5rem 0;
-}
-.header{
-    min-height: 100px;
-    padding-left: 0px;
-    padding-right: 0px;
+.navbar {
+	padding: 0.5rem 0;
 }
 
-.travel_logo{
-    width: 150px;
-    height: 60px;
-    color: #ffffff;
+.travel_logo {
+	width: 150px;
+	height: 60px;
+	color: #ffffff;
 }
 
-.search_input{
-    border: 1px solid #ffffff;
-    width:350px;
-    background-color:rgba(255, 255, 255, 0.253);
-    color: #ffffff;
-    margin-left: 50px;
+.navbar-toggler{
+	height: 30px;
+	padding: 5px 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	border: 1px solid #fff;
+
+}
+ .navbar-toggle-span{
+	width: 20px;
+	height: 3px;
+	margin: 0 auto;
 }
 
-.search_input::placeholder{
-    color:#ffffff;
+.navForOther {
+	width: fit-content;
+	text-decoration: none !important;
+	padding: 5px 20px;
+	margin: 5px;
+	color: #000000;
+	font-weight: 500;
+}
+.navForOther:hover {
+	color: #f9a51a;
+}
+.navForHome {
+	width: fit-content;
+	text-decoration: none !important;
+	padding: 5px 20px;
+	margin: 5px;
+	color: #ffffff;
+	font-weight: 500;
 }
 
-.search_input:focus{
-    border: 1px solid #ffffff;
-    background-color:rgba(255, 255, 255, 0.39);
-    color:#ffffff;
+.navForHome:hover {
+	color: #f9a51a;
 }
 
-.navForOther{
-    text-decoration: none !important;
-    padding: 5px 20px;
-    margin: 5px;
-    color:#000000;
-    font-weight: 500;
-}
-.navForOther:hover{
-    color: #F9A51A;
-}
-.navForHome{
-    text-decoration: none !important;
-    padding: 5px 20px;
-    margin: 5px;
-    color:#ffffff;
-    font-weight: 500;
+#login_btn {
+	margin-right: 0px;
+	background-color: #f9a51a;
+	border-radius: 5px;
 }
 
-.navForHome:hover{
-    color: #F9A51A;
+#login_btn:hover {
+	color: black;
 }
 
-#login_btn{
-    margin-right:0px;
-    background-color: #F9A51A;
-    border-radius: 5px;
-}
 
-#login_btn:hover{
-    color:black;
-}
-#name{
-    width:150px;
-    padding:5px;    
+@media screen and (max-width:580px){
+	.navbar {
+		padding:0 20px;
+	}
 }

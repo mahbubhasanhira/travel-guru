@@ -1,0 +1,117 @@
+/*------------- Booking Area---------- */
+.bookingContainer {
+	/* background-image: url("../../travel-guru-resource/Image/Rectangle\ 28.png"); */
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+	width: 100%;
+	min-height: 100vh;
+	box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.596);
+	color: #ffffff;
+}
+
+.booking_area {
+	display: flex;
+	justify-content: space-between;
+	margin: 100px;
+}
+
+.booking_data {
+	width: 50%;
+	padding: 20px 20px 0 0;
+}
+.booking_data h1 {
+	font-size: 4.5rem;
+}
+
+.booking_form {
+	width: 450px;
+	height: 427px;
+	padding: 10px 20px;
+	background-color: #ffffff;
+	border-radius: 5px;
+	color: black;
+	font-family: Montserrat;
+}
+.booking_form label {
+	font-style: normal;
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 20px;
+	color: #818181;
+}
+
+.booking_form p,
+.Custom_date {
+	width: 410px;
+	height: 60px;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 16px;
+	line-height: 20px;
+	background: #f2f2f2;
+	border-radius: 5px;
+	color: #000000;
+	padding: 20px;
+}
+
+.Custom_date {
+	width: 95%;
+	border: none !important;
+}
+.start_booking_btn {
+	text-decoration: none;
+	width: 417px;
+	height: 60px;
+	margin-top: 20px;
+	background: #f9a51a;
+	border-radius: 5px;
+	border: none;
+}
+
+.booking_btn {
+	text-decoration: none !important;
+	background-color: #f9a51a;
+	border-radius: 5px;
+	color: black;
+	border: none;
+	padding: 7px 15px;
+}
+
+.booking_btn:hover {
+	color: #ffffff;
+}
+
+@media screen and (max-width: 1050px) {
+	.booking_area {
+		margin: 0 auto;
+	}
+}
+
+@media screen and (max-width: 992px) {
+	.booking_area {
+		flex-direction: column;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.booking_data {
+		width: 100%;
+		padding: 20px;
+	}
+
+	.booking_form {
+		margin: 50px auto;
+	}
+}
+
+@media screen and (max-width: 450px) {
+	.booking_form {
+		width: 90%;
+	}
+	.booking_form p,
+	.start_booking_btn,
+	.Custom_date {
+		width: 100%;
+	}
+}

@@ -21,7 +21,7 @@ const destination = [{
     "origin": "Khulna",
     "destination": "Kuakata",
     "description": "Kuakata offers a full view of the sunrise and sunset from the same white sandy beach in the water of the Bay of Bengal. Locally known as Shagor Kannya (Daughter of Ocean), the long strip of dark, marbled sand stretches for about 18 kilometres (11 mi). The long, wide beach at Kuakata has a typical natural setting. This sandy beach has gentle slopes into the Bay of Bengal. Kuakata is also a sanctuary for migratory winter birds.",
-    "image": "http://www.expeditions-bd.com/wp-content/uploads/2016/10/kuakata.jpg"
+    "image": "https://media.pixcove.com/I/1/2/Kuakata-Vacation-Travel-Palm-Trees-Beach-Sea-Free--5324.jpg"
   }, {
     "id": 5,
     "origin": "Sylhet",

@@ -1,128 +1,85 @@
-import React, { useContext, useEffect, useState } from 'react';
-import PlaceCard from '../PlaceCard/PlaceCard';
-import './Home.css'
-import fakeDataDestination from '../fakeData/destination';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faChevronLeft, faChevronRight, faArrowRight, faArrowLeft } from '@fortawesome/free-solid-svg-icons';
-import { UserContext } from '../../App';
-import DatePicker from "react-datepicker";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useContext } from "react";
 import "react-datepicker/dist/react-datepicker.css";
-import { Link } from 'react-router-dom';
+import Carousel from "react-multi-carousel";
+import "react-multi-carousel/lib/styles.css";
+import { Link } from "react-router-dom";
+import { UserContext } from "../../App";
+import { default as allCardData } from "../fakeData/destination";
+import Header from "../Header/Header";
+import PlaceCard from "../PlaceCard/PlaceCard";
+import "./Home.css";
 
 const Home = () => {
-    const end_date = new Date()
-    end_date.setDate(end_date.getDate() + 10)
-    const [allCard, setAllCard] = useState([]);
-    const [cardData, setCardData] = useState({});
-    const [toggleBooking, setToggleBooking] = useState(true);
-    const [startDate, setStartDate] = useState(new Date());
-    const [endDate, setEndDate] = useState(end_date);
-    
-    const [loggedInUser, setLoggedInUser, destination, setDestination] = useContext(UserContext);
+	const { cardData, setCardData } = useContext(UserContext);
+	const responsive = {
+		moreLarge: {
+			breakpoint: { max: 4000, min: 3000 },
+			items: 5,
+		},
+		largeDevice: {
+			breakpoint: { max: 3000, min: 1300 },
+			items: 3,
+		},
+		desktop: {
+			breakpoint: { max: 1300, min: 1024 },
+			items: 2,
+		},
+		laptop: {
+			breakpoint: { max: 1024, min: 768 },
+			items: 1,
+		},
+		tablet: {
+			breakpoint: { max: 767, min: 600 },
+			items: 2,
+		},
+		mobile: {
+			breakpoint: { max: 600, min: 0 },
+			items: 1,
+		},
+	};
 
-    const handleStartBooking = () => {
-        const newCard = {...cardData};
-        newCard.startDate = startDate;
-        newCard.endDate = endDate;
-        setDestination(newCard);
-    }
-    
-   const [cardSliderValue, setCardSliderValue] = useState(0);
-       
-    const handleToggleBooking = condition => {
-        setToggleBooking(condition); 
-    }
-    
-    const handleCardData = singleData => {
-        setCardData(singleData);
-        
-    }
-
-    useEffect(()=> {
-        setAllCard(fakeDataDestination);
-        handleCardData(fakeDataDestination[0]);
-        setDestination(fakeDataDestination[0]);
-    },[])
-
-    return (
-       <div  className='home'>
-            {
-                toggleBooking ?   
-                    <>
-                        {
-                            cardData.destination && 
-                            <div>    
-                                <div className=' d-flex justify-content-around'>
-                                    <div className='text_container'>
-                                        <h1>{cardData.destination}</h1>
-                                        <p>{cardData.description.slice(0,210)}...</p>
-                                        <button onClick={() => handleToggleBooking(false)} className='booking_btn'>Booking  <FontAwesomeIcon icon={faArrowRight} /></button>
-                                    </div>  
-                                    <div className='card_container d-flex justify-content-around'>
-                                        <PlaceCard cardSliderValue={cardSliderValue} handleCardData={handleCardData}  cardProperty={allCard}></PlaceCard>
-                                    </div> 
-                                </div>
-                                <div className='slider_btn d-flex justify-content-center'>
-                                    <p onClick={()=> {if(cardSliderValue > 0){setCardSliderValue(cardSliderValue - 1)}}}><FontAwesomeIcon icon={faChevronLeft} /></p>
-                                    <p onClick={()=> {if(cardSliderValue < (allCard.length - 3)){setCardSliderValue(cardSliderValue + 1) }}}><FontAwesomeIcon icon={faChevronRight} /></p>
-                                </div>
-                            </div>
-                        }
-                    </>:
-
-
-                    <>
-                        {
-                            cardData.destination &&
-                            <div className='booking_area container d-flex justify-content-between'>
-                                <div className='booking_data'>
-                                    <h1>{cardData.destination}</h1>
-                                    <p>{cardData.description}</p>
-                                    <button onClick={() => handleToggleBooking(true)} className='booking_btn back_btn'><FontAwesomeIcon icon={faArrowLeft} /> Back</button>
-                                </div>
-                                <div className='d-flex align-items-center booking_form'>
-                                    <form action="">
-                                        <label>Origin</label>
-                                        <p>{cardData.origin}</p>
-                                        <label>Destination</label>
-                                        <p>{cardData.destination}</p>
-                                        <div className='d-flex justify-content-around'>
-                                            <div>
-                                                <label>From</label>
-                                                <DatePicker
-                                                    className='Custom_date'
-                                                    selected={startDate}
-                                                    onChange={date => setStartDate(date)}
-                                                    selectsStart
-                                                    startDate={startDate}
-                                                    endDate={endDate}
-                                                    dateFormat="dd/MM/yyyy"
-                                                    showMonthYearPicker
-                                                />
-                                            </div>
-                                            <div>
-                                                <label>To</label>
-                                                <DatePicker
-                                                    className='Custom_date'
-                                                    selected={endDate}
-                                                    onChange={date => setEndDate(date)}
-                                                    selectsEnd
-                                                    startDate={startDate}
-                                                    endDate={endDate}
-                                                    dateFormat="dd/MM/yyyy"
-                                                    showMonthYearPicker
-                                                />
-                                            </div>
-                                        </div>
-                                        <Link to='/hoteldetails'><button onClick={handleStartBooking} className='start_booking_btn'>Start Booking</button></Link>
-                                    </form>
-                                </div>
-                            </div>
-                        }
-                    </>
-            }
-       </div>
-    );
+	return (
+		<div
+			style={{
+				backgroundImage: `url(${cardData?.image})`,
+			}}
+			className="home"
+		>
+			<Header />
+			<div className="homeWrapper">
+				{cardData?.destination && (
+					<div className="homeCenter">
+						<div className="text_container">
+							<h1>{cardData.destination}</h1>
+							<p>{cardData.description.slice(0, 210)}...</p>
+							<Link to={`/booking/${cardData?.origin}`} className="booking_btn">
+								Booking <FontAwesomeIcon icon={faArrowRight} />
+							</Link>
+						</div>
+						<div className="card_container">
+							<Carousel
+								responsive={responsive}
+								swipeable={false}
+								draggable={false}
+								keyBoardControl={false}
+								renderArrowsWhenDisabled={true}
+							>
+								{allCardData.map((item, index) => (
+									<PlaceCard
+										key={index}
+										setCardData={setCardData}
+										cardData={item}
+									></PlaceCard>
+								))}
+							</Carousel>
+						</div>
+					</div>
+				)}
+			</div>
+		</div>
+	);
 };
 
 export default Home;

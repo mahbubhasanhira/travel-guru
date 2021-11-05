@@ -1,11 +1,10 @@
 .login_container{
     width:550px;
-    
-    margin: 0 auto;
-   
+    margin: 50px auto;
 }
+
 .create_account_container{
-    width: 500px;
+    width: 100%;
     background: rgba(255, 255, 255, 0.2);
     border: 1px solid #ABABAB;
     border-radius: 4px;
@@ -38,6 +37,7 @@ border-bottom: 1px solid #F9A51A;;
     background-color:#F9A51A;
     padding:10px 20px !important;
     border:none;
+    outline:none;
     border-radius:5px;
     border-bottom:none!important;
 }
@@ -69,9 +69,21 @@ border-bottom: 1px solid #F9A51A;;
     width:90%;
     text-decoration: none;
     border: none;
+    outline: none;
     background-color: #ffffff;
     margin:0 auto;
 }
 .or{
     text-align: center;
+}
+
+@media screen and (max-width: 551px){
+    .login_container{
+        width:95%;
+        margin: 30px auto;
+    }
+
+    .popupSignIn button{
+        width:70%;
+    }
 }
