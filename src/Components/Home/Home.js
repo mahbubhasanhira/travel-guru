@@ -65,6 +65,7 @@ const Home = () => {
 								draggable={false}
 								keyBoardControl={false}
 								renderArrowsWhenDisabled={true}
+								infinite={true}
 							>
 								{allCardData.map((item, index) => (
 									<PlaceCard
